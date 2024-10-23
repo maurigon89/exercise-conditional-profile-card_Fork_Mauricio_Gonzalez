@@ -3,88 +3,149 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
+    <title>Profile Generator</title>
     <link rel="shortcut icon" href="./assets/img/4geeks.ico" />
     <script
       src="https://kit.fontawesome.com/072e5df971.js"
       crossorigin="anonymous"
     ></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+      }
+      .filters {
+        background: white;
+        width: 100%;
+        margin: 10px 0;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+      .filters li {
+        display: inline-block;
+        max-width: 120px;
+        padding: 10px;
+      }
+      .filters li label {
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+      }
+      .filters li input,
+      .filters li select {
+        width: 100%;
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+      }
+      .filters li input[type="checkbox"] {
+        width: auto;
+        margin-top: 12px;
+      }
+      .widget {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .cover img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+        margin-top: -75px;
+        border: 5px solid white;
+      }
+      .widget h1,
+      .widget h2,
+      .widget h3 {
+        text-align: center;
+        color: #333;
+      }
+      .widget ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+        margin-top: 15px;
+      }
+      .widget ul li {
+        list-style: none;
+      }
+      .widget ul li a {
+        text-decoration: none;
+        color: #333;
+      }
+    </style>
   </head>
 
   <body>
+    <!-- Formulario para actualizar los detalles del perfil -->
     <ul class="filters">
       <li>
-        <label>Include Cover</label>
+        <label for="name">Name</label>
+        <input type="text" class="picker" for="name" />
+      </li>
+      <li>
+        <label for="lastName">Last Name</label>
+        <input type="text" class="picker" for="lastName" />
+      </li>
+      <li>
+        <label for="role">Role</label>
+        <input type="text" class="picker" for="role" />
+      </li>
+      <li>
+        <label for="city">City</label>
+        <input type="text" class="picker" for="city" />
+      </li>
+      <li>
+        <label for="country">Country</label>
+        <input type="text" class="picker" for="country" />
+      </li>
+      <li>
+        <label for="twitter">Twitter</label>
+        <input type="text" class="picker" for="twitter" />
+      </li>
+      <li>
+        <label for="github">GitHub</label>
+        <input type="text" class="picker" for="github" />
+      </li>
+      <li>
+        <label for="linkedin">LinkedIn</label>
+        <input type="text" class="picker" for="linkedin" />
+      </li>
+      <li>
+        <label for="instagram">Instagram</label>
+        <input type="text" class="picker" for="instagram" />
+      </li>
+      <li>
+        <label for="includeCover">Include Cover</label>
         <select class="picker" for="includeCover">
-          <option value="">Include Cover</option>
           <option value="true">True</option>
           <option value="false">False</option>
         </select>
       </li>
-      <li>
-        <label>Name</label>
-        <input class="picker" for="name" type="text" />
-      </li>
-      <li>
-        <label>Last Name</label>
-        <input class="picker" for="lastName" type="text" />
-      </li>
-      <li>
-        <label>S.M. Position</label>
-        <select class="picker" for="socialMediaPosition">
-          <option value="position-left">Left</option>
-          <option value="position-right">Right</option>
-        </select>
-      </li>
-      <li>
-        <label>Twitter</label>
-        <input class="picker" for="twitter" type="text" />
-      </li>
-      <li>
-        <label>Github</label>
-        <input class="picker" for="github" type="text" />
-      </li>
-      <li>
-        <label>LinkedIn</label>
-        <input class="picker" for="linkedin" type="text" />
-      </li>
-      <li>
-        <label>Instagram</label>
-        <input class="picker" for="instagram" type="text" />
-      </li>
-      <li>
-        <label>Role</label>
-        <select class="picker" for="role">
-          <option value="">null</option>
-          <option value="Web Developer">Web Developer</option>
-          <option value="Floor Planner">Floor Planner</option>
-          <option value="Technical Writter">Technical Writter</option>
-        </select>
-      </li>
-      <li>
-        <label>City</label>
-        <select class="picker" for="city">
-          <option value="">null</option>
-          <option value="Miami">Miami</option>
-          <option value="Munich">Munich</option>
-          <option value="Caracas">Caracas</option>
-          <option value="Toronto">Toronto</option>
-        </select>
-      </li>
-      <li>
-        <label>Country</label>
-        <select class="picker" for="country">
-          <option value="">null</option>
-          <option value="USA">USA</option>
-          <option value="Germany">Germany</option>
-          <option value="Canada">Canada</option>
-          <option value="Venezuela">Venezuela</option>
-        </select>
-      </li>
     </ul>
+
+
     <div id="widget_content"></div>
 
-    <!-- do not remove this bundle.js tag -->
+
     <script type="text/javascript" src="/main.bundle.js"></script>
   </body>
 </html>
